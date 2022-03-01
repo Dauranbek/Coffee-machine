@@ -55,7 +55,7 @@ def sufficient_amount_of_ingredients(coffee_type):
 
 
 def check_transaction():
-    if coffee =='espresso' and formula < int(MENU["espresso"]["cost"]):
+    if coffee =='espresso' and formula <         int(MENU["espresso"]["cost"]):
         print("Sorry that is not enough money. Money refunded.")
     else:
         if coffee == 'espresso':
@@ -96,23 +96,22 @@ pennies_cost = 0.01
 # resources['Money'] = round(formula, 2)
 # change()
 # check_transaction()
-# off = True
-# while not off:
-coffee = input("What would you like? (espresso/latte/cappuccino): ").lower()
-
-if coffee == "report":
-    print(resources['water', 'milk', 'coffee'])
-sufficient_amount_of_ingredients(coffee)
-print("Please insert coins.")
-quarters = int(input("how many quarters?: "))
-dimes = int(input("how many dimes?: "))
-nickles = int(input("how many nickles?: "))
-pennies = int(input("how many pennies?: "))
-formula = quarters * quarters_cost + dimes * dimes_cost + nickles * nickles_cost + pennies * pennies_cost
-resources['Money'] = {}
-resources['Money'] = round(formula, 2)
-change()
-check_transaction()
-if coffee == "off":
-    print("TURned off!")
-
+off = False
+while off == False:
+  coffee = input("What would you like? (espresso/latte/cappuccino): ").lower() 
+  if coffee == "report":
+    print(resources)
+  elif coffee == "off":
+    off = True
+  else:
+    sufficient_amount_of_ingredients(coffee)
+    print("Please insert coins.")
+    quarters = int(input("how many quarters?: "))
+    dimes = int(input("how many dimes?: "))
+    nickles = int(input("how many nickles?: "))
+    pennies = int(input("how many pennies?: "))
+    formula = quarters * quarters_cost + dimes * dimes_cost + nickles * nickles_cost + pennies * pennies_cost
+    resources['Money'] = {}
+    resources['Money'] = round(formula, 2)
+    change()
+    check_transaction()
